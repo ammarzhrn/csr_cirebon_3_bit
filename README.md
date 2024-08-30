@@ -72,7 +72,15 @@ Ikuti langkah-langkah berikut untuk menginstal dan menjalankan proyek ini di lin
 
 Untuk menjalankan proyek dalam mode pengembangan:
 
-```bash
+```storage link
+php artisan storage:link
+```
+
+```inisialisasi php
+php artisan ser
+```
+
+```menjalankan npm
 npm run dev
 ```
 
