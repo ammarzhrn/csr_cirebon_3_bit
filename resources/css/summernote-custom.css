@@ -1,0 +1,21 @@
+.note-editor .note-toolbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+.note-editor .note-statusbar {
+    background-color: #f8f9fa;
+}
+
+.note-editor .note-editable {
+    background-color: white;
+}
+
+.note-editor .note-toolbar .note-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.note-editor .note-toolbar .note-btn:hover {
+    background-color: #e9ecef;
+}

@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'select2/dist/css/select2.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+
+
+
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 86px;
+    height: 24px;
+    padding: 2px 4px 2px 9px;
+    gap: 4px;
+    border-radius: 6px;
+    background: linear-gradient(0deg, #28458B, #28458B),
+                linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tag-text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.tag-remove-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.tag-remove-btn:hover {
+    opacity: 0.8;
+}
+
+#tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
