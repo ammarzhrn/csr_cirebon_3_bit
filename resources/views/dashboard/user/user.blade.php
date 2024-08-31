@@ -8,7 +8,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 mb-32">
+    <div class="py-12 mb-32 min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <div class="mb-6">
@@ -43,32 +43,12 @@
             <!-- Kategori filter -->
             <div class="mb-6 overflow-x-auto">
                 <div class="flex space-x-2 min-w-max">
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-[#98100A] text-white" data-status="semua">Semua</button>
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700" data-status="admin">Admin</button>
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700" data-status="mitra">Mitra</button>
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700" data-status="guest">Guest</button>
+                    <a href="{{ route('dashboard.user', ['status' => 'semua']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'semua' || !request('status') ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Semua</a>
+                    <a href="{{ route('dashboard.user', ['status' => 'admin']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'admin' ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Admin</a>
+                    <a href="{{ route('dashboard.user', ['status' => 'mitra']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'mitra' ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Mitra</a>
+                    <a href="{{ route('dashboard.user', ['status' => 'guest']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'guest' ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Guest</a>
                 </div>
             </div>
-
-            <!-- Tambahan filter dan tombol unduh -->
-            <form action="{{ route('dashboard.user') }}" method="GET" id="filterForm">
-                <div class="mb-6">
-                    <div class="flex flex-wrap items-center gap-2">
-                        <select id="quarterFilter" name="quarter" class="w-full sm:w-auto h-[44px] px-4 py-2.5 rounded-lg border border-gray-300">
-                            <option value="">Pilih Kuartal</option>
-                            <option value="1" {{ request('quarter') == 1 ? 'selected' : '' }}>Kuartal 1 (Jan-Mar)</option>
-                            <option value="2" {{ request('quarter') == 2 ? 'selected' : '' }}>Kuartal 2 (Apr-Jun)</option>
-                            <option value="3" {{ request('quarter') == 3 ? 'selected' : '' }}>Kuartal 3 (Jul-Sep)</option>
-                            <option value="4" {{ request('quarter') == 4 ? 'selected' : '' }}>Kuartal 4 (Okt-Des)</option>
-                        </select>
-                        <button type="submit" id="applyFilter" class="h-[44px] px-4 py-2.5 rounded-lg border border-red-800 bg-[#98100A] text-white font-inter text-sm font-semibold leading-5 hover:bg-red-900 transition duration-300 whitespace-nowrap">
-                            Tampilkan Filter
-                        </button>
-                        <a href="{{ route('dashboard.user.download.csv') }}" class="h-[44px] px-4 py-2.5 rounded-lg bg-white text-[#099250] border border-[#099250] font-inter text-sm font-semibold leading-5 flex items-center justify-center gap-2 hover:bg-green-50 transition duration-300">Unduh .CSV</a>
-                        <a href="{{ route('dashboard.user.download.pdf') }}" class="h-[44px] px-4 py-2.5 rounded-lg bg-white text-[#98100A] border border-[#98100A] font-inter text-sm font-semibold leading-5 flex items-center justify-center gap-2 hover:bg-red-50 transition duration-300">Unduh .PDF</a>
-                    </div>
-                </div>
-            </form>
 
             <!-- Search input -->
             <div class="mb-4">
@@ -222,8 +202,6 @@
     </div>    @push('scripts')
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const filterButtons = document.querySelectorAll('.kategori-filter');
-        const tableRows = document.querySelectorAll('#laporanTableBody tr');
         const quarterFilter = document.getElementById('quarterFilter');
         const applyFilterButton = document.getElementById('applyFilter');
         const searchInput = document.getElementById('searchInput');
@@ -235,68 +213,33 @@
             }
         }
 
-        // Fungsi filter table
-        function filterTable() {
-            const status = document.querySelector('.kategori-filter.bg-[#98100A]').getAttribute('data-status');
-            const quarter = quarterFilter.value;
-
-            tableRows.forEach(row => {
-                const rowStatus = row.getAttribute('data-status');
-                const rowDate = new Date(row.querySelector('td:nth-child(5)').textContent);
-                const rowQuarter = Math.floor((rowDate.getMonth() + 3) / 3);
-
-                const statusMatch = status === 'semua' || rowStatus === status;
-                const quarterMatch = quarter === '' || quarterMatch(rowQuarter, quarter);
-
-                if (statusMatch && quarterMatch) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-
-        function quarterMatch(rowQuarter, selectedQuarter) {
-            return selectedQuarter === '' || rowQuarter === parseInt(selectedQuarter);
-        }
-
-        filterButtons.forEach(button => {
-            addEventListenerIfExists(button, 'click', function() {
-                const status = this.getAttribute('data-status');
-                
-                // Ubah warna tombol
-                filterButtons.forEach(btn => btn.classList.remove('bg-[#98100A]', 'text-white'));
-                filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-700'));
-                this.classList.remove('bg-gray-200', 'text-gray-700');
-                this.classList.add('bg-[#98100A]', 'text-white');
-
-                // Filter tabel
-                filterTable();
-            });
+        // Tambahkan event listener ke tombol apply filter
+        addEventListenerIfExists(applyFilterButton, 'click', function(e) {
+            e.preventDefault();
+            applyFilters();
         });
 
         // Tambahkan event listener ke input pencarian
         addEventListenerIfExists(searchInput, 'input', function() {
-            const searchTerm = this.value.toLowerCase();
-            tableRows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
+            applyFilters();
         });
 
-        // Tambahkan event listener ke tombol apply filter
-        addEventListenerIfExists(applyFilterButton, 'click', function(e) {
-            e.preventDefault();
-            filterTable();
-        });
+        // Fungsi untuk menerapkan filter
+        function applyFilters() {
+            const quarter = quarterFilter.value;
+            const searchTerm = searchInput.value;
+            const currentUrl = new URL(window.location.href);
+            
+            currentUrl.searchParams.set('quarter', quarter);
+            currentUrl.searchParams.set('search', searchTerm);
+            
+            window.location.href = currentUrl.toString();
+        }
 
         // Fungsi untuk mendapatkan parameter filter
         function getFilterParams() {
-            return `quarter=${quarterFilter.value}&search=${searchInput.value}`;
+            const currentUrl = new URL(window.location.href);
+            return currentUrl.searchParams.toString();
         }
 
         // Tambahkan event listener ke tombol download CSV dan PDF

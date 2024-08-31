@@ -8,7 +8,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 mb-32">
+    <div class="py-12 mb-32 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <div class="mb-6">
