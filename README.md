@@ -1,6 +1,6 @@
 # 🚀 Website CSR Pemerintah Kabupaten Cirebon
 
-Proyek ini merupakan hasil karya tim 3-bit dalam rangka mengikuti lomba pembuatan website CSR (Corporate Social Responsibility) untuk Pemerintah Kabupaten Cirebon yang diselenggarakan oleh SMK Dev. Website ini bertujuan untuk memfasilitasi dan mempromosikan program-program CSR di Kabupaten Cirebon, meningkatkan transparansi, dan mendorong partisipasi masyarakat dalam pembangunan daerah.
+Proyek ini merupakan hasil karya tim 3-bit dalam rangka mengikuti lomba pembuatan website CSR (Corporate Social Responsibility) untuk Pemerintah Kabupaten Cirebon dalam rangka Coding League 2024 yang diselenggarakan oleh SMK Dev. Website ini bertujuan untuk memfasilitasi dan mempromosikan program-program CSR di Kabupaten Cirebon, meningkatkan transparansi, dan mendorong partisipasi masyarakat dalam pembangunan daerah.
 
 ## 📋 Daftar Isi
 - [✨ Fitur Utama](#-fitur-utama)
