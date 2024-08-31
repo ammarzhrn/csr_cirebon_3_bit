@@ -1,66 +1,169 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 Website CSR Pemerintah Kabupaten Cirebon
+
+Proyek ini merupakan hasil karya tim 3-bit dalam rangka mengikuti lomba pembuatan website CSR (Corporate Social Responsibility) untuk Pemerintah Kabupaten Cirebon dalam rangka Coding League 2024 yang diselenggarakan oleh SMK Dev. Website ini bertujuan untuk memfasilitasi dan mempromosikan program-program CSR di Kabupaten Cirebon, meningkatkan transparansi, dan mendorong partisipasi masyarakat dalam pembangunan daerah.
+
+## 📋 Daftar Isi
+- [✨ Fitur Utama](#-fitur-utama)
+- [🛠️ Prasyarat](#️-prasyarat)
+- [🚀 Instalasi](#-instalasi)
+- [💻 Penggunaan](#-penggunaan)
+- [⚙️ Konfigurasi](#️-konfigurasi)
+- [🤝 Kontribusi](#-kontribusi)
+- [👨‍💻 Kreator](#-kreator)
+
+## ✨ Fitur Utama
+
+- 🌟 Dashboard Interaktif: Visualisasi data CSR yang mudah dipahami
+- 🚀 Manajemen Program CSR: Sistem untuk mengelola dan melacak program-program CSR
+- 💡 Forum Diskusi: Wadah interaksi antara pemerintah, perusahaan, dan masyarakat
+- 📊 Laporan Transparan: Penyajian laporan CSR yang transparan dan mudah diakses
+
+## 🛠️ Prasyarat
+
+Sebelum memulai, pastikan sistem Anda memenuhi prasyarat berikut:
+
+- [Node.js](https://nodejs.org/) (versi 14.x atau lebih baru)
+- [PHP](https://www.php.net/downloads.php) (versi 8.2 atau lebih baru)
+- [npm](https://www.npmjs.com/) (biasanya terinstal bersama Node.js)
+- [Git](https://git-scm.com/)
+- [Composer](https://getcomposer.org/)
+- [Apache](https://httpd.apache.org/) (pastikan sudah terkonfigurasi dan berjalan)
+- [ApexCharts](https://apexcharts.com/) (akan diinstal melalui npm)
+
+## 🚀 Instalasi
+
+Ikuti langkah-langkah berikut untuk menginstal dan menjalankan proyek ini di lingkungan lokal Anda:
+
+1. Clone repositori ini:
+   ```bash
+   https://github.com/ammarzhrn/csr_cirebon_3_bit.git
+   ```
+
+2. Masuk ke direktori proyek:
+   ```bash
+   cd csr-cirebon
+   ```
+
+3. Instal dependensi PHP menggunakan Composer:
+   ```bash
+   composer install
+   ```
+
+4. Instal dependensi JavaScript menggunakan npm:
+   ```bash
+   npm install
+   ```
+
+5. Instal ApexCharts jika belum terinstal:
+   ```bash
+   npm install apexcharts
+   ```
+
+6. Salin file konfigurasi:
+   ```bash
+   cp .env.example .env
+   ```
+
+7. Edit file `.env` dan sesuaikan dengan pengaturan lokal Anda.
+
+8. Pada bagian MAIL di env (baris 49 hingga 56), ubah konfigurasi menjadi
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=akhtar.syaqil@gmail.com
+MAIL_PASSWORD=bzxtwblbmrhlayg×
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="no-reply@3bit.com"
+MAIL_FROM_NAME="Pemerintah Kota Cirebon"
+```
+
+9. Pada bagian Seeders di UserSeeder, masukkan email yang ingin anda jadikan admin
+```env
+        // Admin user
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password'),
+            'level' => 'admin',
+        ]);
+```
+
+10. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
+
+## 💻 Penggunaan
+
+Untuk menjalankan proyek dalam mode pengembangan:
+
+```migrate database
+php artisan migrate
+```
+
+```storage link
+php artisan storage:link
+```
+
+```app key
+php artisan key:generate
+```
+
+```seed database
+php artisan db:seed UserSeeder
+```
+
+```seed database
+php artisan db:seed FaqSeeder
+```
+
+```inisialisasi php
+php artisan ser
+```
+
+```menjalankan npm
+npm run dev
+```
+
+Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat aplikasi berjalan.
+
+## ⚙️ Konfigurasi
+
+Proyek ini menggunakan file `.env` untuk konfigurasi. Berikut adalah beberapa variabel penting yang perlu Anda atur:
+
+- `API_KEY`: Kunci API untuk layanan eksternal
+- `DATABASE_URL`: URL koneksi database
+- `PORT`: Port server (default: 3000)
+
+Untuk informasi lebih lanjut tentang konfigurasi, lihat [dokumentasi konfigurasi](docs/configuration.md).
+
+## 👨‍💻 Kreator
+
+Kontributor kece2 tim 3-Bits:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/rizqiirkhamm">
+        <img src="https://github.com/rizqiirkhamm.png" width="100px;" alt="Rizqi Irkham Maulana"/><br />
+        <sub><b>Rizqi Irkham Maulana</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ammarzhrn">
+        <img src="https://github.com/ammarzhrn.png" width="100px;" alt="Ammar Zahran Syafiq"/><br />
+        <sub><b>Ammar Zahran Syafiq</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/kenbigail">
+        <img src="https://github.com/kenbigail.png" width="100px;" alt="Keenan Abigail"/><br />
+        <sub><b>Keenan Abigail</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  Dibuat dengan 💖 dan ☕ oleh tim 3-bit untuk Coding League by SMK.DEV
 </p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
