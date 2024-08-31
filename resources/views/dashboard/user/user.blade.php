@@ -1,4 +1,4 @@
-@if(auth()->user()->level === 'admin')\
+@if(auth()->user()->level === 'admin')
 <x-app-layout>
     @include('notification.notification-admin')
 
