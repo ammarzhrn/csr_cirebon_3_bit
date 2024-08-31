@@ -9,7 +9,6 @@ Proyek ini merupakan hasil karya tim 3-bit dalam rangka mengikuti lomba pembuata
 - [💻 Penggunaan](#-penggunaan)
 - [⚙️ Konfigurasi](#️-konfigurasi)
 - [🤝 Kontribusi](#-kontribusi)
-- [📄 Lisensi](#-lisensi)
 - [👨‍💻 Kreator](#-kreator)
 
 ## ✨ Fitur Utama
@@ -107,19 +106,9 @@ Proyek ini menggunakan file `.env` untuk konfigurasi. Berikut adalah beberapa va
 
 Untuk informasi lebih lanjut tentang konfigurasi, lihat [dokumentasi konfigurasi](docs/configuration.md).
 
-## 🤝 Kontribusi
-
-Kami sangat menghargai kontribusi dari komunitas! Jika Anda ingin berkontribusi, silakan ikuti langkah-langkah berikut:
-
-1. Fork repositori ini
-2. Buat branch fitur baru (`git checkout -b fitur-baru`)
-3. Commit perubahan Anda (`git commit -am 'Menambahkan fitur baru'`)
-4. Push ke branch (`git push origin fitur-baru`)
-5. Buat Pull Request baru
-
 ## 👨‍💻 Kreator
 
-Proyek ini dibuat dengan ❤️ oleh tim 3-bit dari SMK Dev:
+Kontributor kece2 tim 3-Bits:
 
 <table>
   <tr>
@@ -147,5 +136,5 @@ Proyek ini dibuat dengan ❤️ oleh tim 3-bit dari SMK Dev:
 ---
 
 <p align="center">
-  Dibuat dengan 💖 dan ☕ oleh tim 3-bit untuk lomba SMK Dev
+  Dibuat dengan 💖 dan ☕ oleh tim 3-bit untuk Coding League by SMK.DEV
 </p>
