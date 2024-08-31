@@ -36,7 +36,7 @@ Ikuti langkah-langkah berikut untuk menginstal dan menjalankan proyek ini di lin
 
 1. Clone repositori ini:
    ```bash
-   git clone https://github.com/username/csr-cirebon.git](https://github.com/ammarzhrn/csr_cirebon_3_bit.git
+   https://github.com/ammarzhrn/csr_cirebon_3_bit.git
    ```
 
 2. Masuk ke direktori proyek:
