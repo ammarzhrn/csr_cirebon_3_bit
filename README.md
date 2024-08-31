@@ -36,7 +36,7 @@ Ikuti langkah-langkah berikut untuk menginstal dan menjalankan proyek ini di lin
 
 1. Clone repositori ini:
    ```bash
-   git clone https://github.com/username/csr-cirebon.git
+   https://github.com/ammarzhrn/csr_cirebon_3_bit.git
    ```
 
 2. Masuk ke direktori proyek:
@@ -77,14 +77,42 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="no-reply@3bit.com"
 MAIL_FROM_NAME="Pemerintah Kota Cirebon"
 ```
-9. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
+
+9. Pada bagian Seeders di UserSeeder, masukkan email yang ingin anda jadikan admin
+```env
+        // Admin user
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password'),
+            'level' => 'admin',
+        ]);
+```
+
+10. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
 
 ## 💻 Penggunaan
 
 Untuk menjalankan proyek dalam mode pengembangan:
 
+```migrate database
+php artisan migrate
+```
+
 ```storage link
 php artisan storage:link
+```
+
+```app key
+php artisan key:generate
+```
+
+```seed database
+php artisan db:seed UserSeeder
+```
+
+```seed database
+php artisan db:seed FaqSeeder
 ```
 
 ```inisialisasi php
