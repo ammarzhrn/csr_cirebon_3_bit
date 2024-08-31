@@ -8,7 +8,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 mb-32">
+    <div class="py-12 mb-32 min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <div class="mb-6">
@@ -49,26 +49,6 @@
                     <a href="{{ route('dashboard.user', ['status' => 'guest']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'guest' ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Guest</a>
                 </div>
             </div>
-
-            <!-- Tambahan filter dan tombol unduh -->
-            <form action="{{ route('dashboard.user') }}" method="GET" id="filterForm">
-                <div class="mb-6">
-                    <div class="flex flex-wrap items-center gap-2">
-                        <select id="quarterFilter" name="quarter" class="w-full sm:w-auto h-[44px] px-4 py-2.5 rounded-lg border border-gray-300">
-                            <option value="">Pilih Kuartal</option>
-                            <option value="1" {{ request('quarter') == 1 ? 'selected' : '' }}>Kuartal 1 (Jan-Mar)</option>
-                            <option value="2" {{ request('quarter') == 2 ? 'selected' : '' }}>Kuartal 2 (Apr-Jun)</option>
-                            <option value="3" {{ request('quarter') == 3 ? 'selected' : '' }}>Kuartal 3 (Jul-Sep)</option>
-                            <option value="4" {{ request('quarter') == 4 ? 'selected' : '' }}>Kuartal 4 (Okt-Des)</option>
-                        </select>
-                        <button type="submit" id="applyFilter" class="h-[44px] px-4 py-2.5 rounded-lg border border-red-800 bg-[#98100A] text-white font-inter text-sm font-semibold leading-5 hover:bg-red-900 transition duration-300 whitespace-nowrap">
-                            Tampilkan Filter
-                        </button>
-                        <a href="{{ route('dashboard.user.download.csv') }}" class="h-[44px] px-4 py-2.5 rounded-lg bg-white text-[#099250] border border-[#099250] font-inter text-sm font-semibold leading-5 flex items-center justify-center gap-2 hover:bg-green-50 transition duration-300">Unduh .CSV</a>
-                        <a href="{{ route('dashboard.user.download.pdf') }}" class="h-[44px] px-4 py-2.5 rounded-lg bg-white text-[#98100A] border border-[#98100A] font-inter text-sm font-semibold leading-5 flex items-center justify-center gap-2 hover:bg-red-50 transition duration-300">Unduh .PDF</a>
-                    </div>
-                </div>
-            </form>
 
             <!-- Search input -->
             <div class="mb-4">

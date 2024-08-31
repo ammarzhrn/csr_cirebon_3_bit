@@ -7,7 +7,7 @@
 <x-app-layout>
     @include('notification.notification-all')
 
-    <div class="flex flex-col min-h-screen">
+    <div class="flex flex-col min-h-screen ">
         <div class="flex-grow">
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

@@ -4,7 +4,7 @@
 
     <div class="flex flex-col min-h-screen">
         <div class="flex-grow">
-            <div class="py-12 space-y-4">
+            <div class="py-12 space-y-4 min-h-screen">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <!-- Breadcrumb -->
                     <div class="mb-6">

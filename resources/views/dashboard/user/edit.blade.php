@@ -2,7 +2,7 @@
 <x-app-layout class="flex flex-col min-h-screen">
     @include('notification.notification-admin')
 
-    <div class="py-12 flex-grow">
+    <div class="py-12 flex-grow min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <div class="mb-6">
