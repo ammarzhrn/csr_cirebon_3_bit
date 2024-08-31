@@ -66,7 +66,18 @@ Ikuti langkah-langkah berikut untuk menginstal dan menjalankan proyek ini di lin
 
 7. Edit file `.env` dan sesuaikan dengan pengaturan lokal Anda.
 
-8. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
+8. Pada bagian MAIL di env (baris 49 hingga 56), ubah konfigurasi menjadi
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=akhtar.syaqil@gmail.com
+MAIL_PASSWORD=bzxtwblbmrhlayg×
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="no-reply@3bit.com"
+MAIL_FROM_NAME="Pemerintah Kota Cirebon"
+```
+9. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
 
 ## 💻 Penggunaan
 
@@ -105,12 +116,6 @@ Kami sangat menghargai kontribusi dari komunitas! Jika Anda ingin berkontribusi,
 3. Commit perubahan Anda (`git commit -am 'Menambahkan fitur baru'`)
 4. Push ke branch (`git push origin fitur-baru`)
 5. Buat Pull Request baru
-
-Untuk informasi lebih lanjut, silakan baca [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file [LICENSE.md](LICENSE.md) untuk detail lebih lanjut.
 
 ## 👨‍💻 Kreator
 
