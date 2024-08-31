@@ -1,4 +1,4 @@
-@if(auth()->user()->level === 'admin')\
+@if(auth()->user()->level === 'admin')
 <x-app-layout>
     @include('notification.notification-admin')
 
@@ -43,10 +43,10 @@
             <!-- Kategori filter -->
             <div class="mb-6 overflow-x-auto">
                 <div class="flex space-x-2 min-w-max">
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-[#98100A] text-white" data-status="semua">Semua</button>
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700" data-status="admin">Admin</button>
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700" data-status="mitra">Mitra</button>
-                    <button class="kategori-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700" data-status="guest">Guest</button>
+                    <a href="{{ route('dashboard.user', ['status' => 'semua']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'semua' || !request('status') ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Semua</a>
+                    <a href="{{ route('dashboard.user', ['status' => 'admin']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'admin' ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Admin</a>
+                    <a href="{{ route('dashboard.user', ['status' => 'mitra']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'mitra' ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Mitra</a>
+                    <a href="{{ route('dashboard.user', ['status' => 'guest']) }}" class="kategori-filter px-4 py-2 rounded-full {{ request('status') == 'guest' ? 'bg-[#98100A] text-white' : 'bg-gray-200 text-gray-700' }}">Guest</a>
                 </div>
             </div>
 
@@ -222,8 +222,6 @@
     </div>    @push('scripts')
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const filterButtons = document.querySelectorAll('.kategori-filter');
-        const tableRows = document.querySelectorAll('#laporanTableBody tr');
         const quarterFilter = document.getElementById('quarterFilter');
         const applyFilterButton = document.getElementById('applyFilter');
         const searchInput = document.getElementById('searchInput');
@@ -235,68 +233,33 @@
             }
         }
 
-        // Fungsi filter table
-        function filterTable() {
-            const status = document.querySelector('.kategori-filter.bg-[#98100A]').getAttribute('data-status');
-            const quarter = quarterFilter.value;
-
-            tableRows.forEach(row => {
-                const rowStatus = row.getAttribute('data-status');
-                const rowDate = new Date(row.querySelector('td:nth-child(5)').textContent);
-                const rowQuarter = Math.floor((rowDate.getMonth() + 3) / 3);
-
-                const statusMatch = status === 'semua' || rowStatus === status;
-                const quarterMatch = quarter === '' || quarterMatch(rowQuarter, quarter);
-
-                if (statusMatch && quarterMatch) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-
-        function quarterMatch(rowQuarter, selectedQuarter) {
-            return selectedQuarter === '' || rowQuarter === parseInt(selectedQuarter);
-        }
-
-        filterButtons.forEach(button => {
-            addEventListenerIfExists(button, 'click', function() {
-                const status = this.getAttribute('data-status');
-                
-                // Ubah warna tombol
-                filterButtons.forEach(btn => btn.classList.remove('bg-[#98100A]', 'text-white'));
-                filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-700'));
-                this.classList.remove('bg-gray-200', 'text-gray-700');
-                this.classList.add('bg-[#98100A]', 'text-white');
-
-                // Filter tabel
-                filterTable();
-            });
+        // Tambahkan event listener ke tombol apply filter
+        addEventListenerIfExists(applyFilterButton, 'click', function(e) {
+            e.preventDefault();
+            applyFilters();
         });
 
         // Tambahkan event listener ke input pencarian
         addEventListenerIfExists(searchInput, 'input', function() {
-            const searchTerm = this.value.toLowerCase();
-            tableRows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
+            applyFilters();
         });
 
-        // Tambahkan event listener ke tombol apply filter
-        addEventListenerIfExists(applyFilterButton, 'click', function(e) {
-            e.preventDefault();
-            filterTable();
-        });
+        // Fungsi untuk menerapkan filter
+        function applyFilters() {
+            const quarter = quarterFilter.value;
+            const searchTerm = searchInput.value;
+            const currentUrl = new URL(window.location.href);
+            
+            currentUrl.searchParams.set('quarter', quarter);
+            currentUrl.searchParams.set('search', searchTerm);
+            
+            window.location.href = currentUrl.toString();
+        }
 
         // Fungsi untuk mendapatkan parameter filter
         function getFilterParams() {
-            return `quarter=${quarterFilter.value}&search=${searchInput.value}`;
+            const currentUrl = new URL(window.location.href);
+            return currentUrl.searchParams.toString();
         }
 
         // Tambahkan event listener ke tombol download CSV dan PDF

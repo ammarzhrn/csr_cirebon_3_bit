@@ -1,10 +1,8 @@
+@import 'select2/dist/css/select2.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import 'select2/dist/css/select2.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
-
 
 
 .tag-item {
