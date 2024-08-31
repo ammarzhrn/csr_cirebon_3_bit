@@ -23,6 +23,7 @@ Proyek ini merupakan hasil karya tim 3-bit dalam rangka mengikuti lomba pembuata
 Sebelum memulai, pastikan sistem Anda memenuhi prasyarat berikut:
 
 - [Node.js](https://nodejs.org/) (versi 14.x atau lebih baru)
+- [PHP](https://www.php.net/downloads.php) (versi 8.2 atau lebih baru)
 - [npm](https://www.npmjs.com/) (biasanya terinstal bersama Node.js)
 - [Git](https://git-scm.com/)
 - [Composer](https://getcomposer.org/)
