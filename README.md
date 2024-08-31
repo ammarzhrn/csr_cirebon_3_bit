@@ -77,6 +77,7 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="no-reply@3bit.com"
 MAIL_FROM_NAME="Pemerintah Kota Cirebon"
 ```
+
 9. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
 
 ## 💻 Penggunaan
@@ -85,6 +86,10 @@ Untuk menjalankan proyek dalam mode pengembangan:
 
 ```storage link
 php artisan storage:link
+```
+
+```app key
+php artisan key:generate
 ```
 
 ```inisialisasi php
