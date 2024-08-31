@@ -84,6 +84,10 @@ MAIL_FROM_NAME="Pemerintah Kota Cirebon"
 
 Untuk menjalankan proyek dalam mode pengembangan:
 
+```migrate database
+php artisan migrate
+```
+
 ```storage link
 php artisan storage:link
 ```
