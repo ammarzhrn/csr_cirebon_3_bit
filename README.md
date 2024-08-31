@@ -92,6 +92,10 @@ php artisan storage:link
 php artisan key:generate
 ```
 
+```seed database
+php artisan db:seed
+```
+
 ```inisialisasi php
 php artisan ser
 ```
