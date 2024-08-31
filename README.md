@@ -78,7 +78,18 @@ MAIL_FROM_ADDRESS="no-reply@3bit.com"
 MAIL_FROM_NAME="Pemerintah Kota Cirebon"
 ```
 
-9. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
+9. Pada bagian Seeders di UserSeeder, masukkan email yang ingin anda jadikan admin
+```env
+        // Admin user
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password'),
+            'level' => 'admin',
+        ]);
+```
+
+10. Pastikan Apache sudah berjalan dan konfigurasi virtual host sudah benar.
 
 ## 💻 Penggunaan
 
@@ -97,7 +108,11 @@ php artisan key:generate
 ```
 
 ```seed database
-php artisan db:seed
+php artisan db:seed UserSeeder
+```
+
+```seed database
+php artisan db:seed FaqSeeder
 ```
 
 ```inisialisasi php
