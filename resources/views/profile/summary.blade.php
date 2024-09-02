@@ -42,9 +42,12 @@
                                     </div>
                                     <div class="w-full md:w-6/12">
                                         <div class="w-full space-y-4">
+                                            @if ($user->level === 'admin')
+                                            <h3 class="text-2xl font-semibold">{{ $user->name }}</h3>
+                                            @else
                                             <h3 class="text-2xl font-semibold">{{ $user->summary->nama_mitra ?? 'Nama Mitra belum diisi' }}</h3>
-
                                             <p class="text-xl text-gray-600">{{ $user->name }}</p>
+                                            @endif
 
                                             @if($user->level === 'mitra')
                                          
