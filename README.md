@@ -8,7 +8,6 @@ Proyek ini merupakan hasil karya tim 3-bit dalam rangka mengikuti lomba pembuata
 - [🚀 Instalasi](#-instalasi)
 - [💻 Penggunaan](#-penggunaan)
 - [⚙️ Konfigurasi](#️-konfigurasi)
-- [🤝 Kontribusi](#-kontribusi)
 - [👨‍💻 Kreator](#-kreator)
 
 ## ✨ Fitur Utama
@@ -72,7 +71,7 @@ MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
 MAIL_USERNAME=akhtar.syaqil@gmail.com
-MAIL_PASSWORD=bzxtwblbmrhlayg×
+MAIL_PASSWORD=bzxtwblbmrhlaygx
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="no-reply@3bit.com"
 MAIL_FROM_NAME="Pemerintah Kota Cirebon"
